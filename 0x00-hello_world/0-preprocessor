@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script runs a CPP file through the preprocessor and saves the result into another file.
+
+if [ -z "$CFILE" ]; then
+  echo "Error: CFILE variable is not set."
+  exit 1
+fi
+
+g++ -E "$CFILE" -o c
+
