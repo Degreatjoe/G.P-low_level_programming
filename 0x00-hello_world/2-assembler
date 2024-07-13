@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script compiles a Cpp file without linking, saving the output to a file with the .o extension.
+
+if [ -z "$CFILE" ]; then
+  echo "Error: CFILE variable is not set."
+  exit 1
+fi
+
+# Get the filename without extension
+filename=$(basename -- "$CFILE")
+output_file="${filename%.*}.s"
+
+g++ -S "$CFILE" -o "$output_file"
+
